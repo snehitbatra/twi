@@ -15,6 +15,10 @@ from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 import openpyxl
 import time
 import tqdm
+import nltk
+import re
+from nltk.corpus import stopwords
+stopword=stopwords.words('english')
 st.set_option('deprecation.showfileUploaderEncoding', False)
 st.set_option('deprecation.showPyplotGlobalUse', False)
 # Viz Pkgs
@@ -104,10 +108,7 @@ def main():
             st.write(sns.countplot(data["sentiment"]))
             st.pyplot()
         if st.button("See the word cloud for all positive things said about ".format(Topic)):
-            import nltk
-            import re
-            from nltk.corpus import stopwords
-            stopword=stopwords.words('english')
+            
             new_stopwords = ["@", "RT"]
             stopword.extend(new_stopwords)
             subset=data[data.sentiment=='positive']
