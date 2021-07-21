@@ -61,10 +61,10 @@ def main():
             X.append(tweet.text)
         return X
     def clean_text(review):
-        import nltk
-        import re
-        from nltk.corpus import stopwords
-        stopword = stopwords.words('english')
+#         import nltk
+#         import re
+#         from nltk.corpus import stopwords
+#         stopword = stopwords.words('english')
         review = re.sub('[^a-zA-Z]', ' ', str(review))
         review = review.split()
 
@@ -119,9 +119,9 @@ def main():
             st.write(plt.imshow(wc.recolor(colormap= 'gist_earth' , random_state=244), alpha=0.98))
             st.pyplot()
         if st.button("See the word cloud for negative things said about ".format(Topic)):
-            import nltk
-            import re
-            from nltk.corpus import stopwords
+#             import nltk
+#             import re
+#             from nltk.corpus import stopwords
             stopword=stopwords.words('english')
             new_stopwords = ["@", "RT","HTTPS","https"]
             stopword.extend(new_stopwords)
