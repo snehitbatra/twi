@@ -16,6 +16,7 @@ import openpyxl
 import time
 import tqdm
 import nltk
+nltk.download('stopwords')
 import re
 from nltk.corpus import stopwords
 stopword=stopwords.words('english')
