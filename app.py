@@ -59,7 +59,6 @@ def main():
     def clean_text(review):
         import nltk
         import re
-	nltk.download('stopwords')
         from nltk.corpus import stopwords
         stopword = stopwords.words('english')
         review = re.sub('[^a-zA-Z]', ' ', str(review))
@@ -71,16 +70,7 @@ def main():
                 ap.append(word)
         review = ' '.join(ap)
         return review
-    def prepCloud(Topic_text,Topic):
-        Topic = str(Topic).lower()
-        Topic=' '.join(re.sub('([^0-9A-Za-z \t])', ' ', Topic).split())
-        Topic = re.split("\s+",str(Topic))
-        stopwords = set(STOPWORDS)
-        stopwords.update(Topic) ### Add our topic in Stopwords, so it doesnt appear in wordClous
-        ###
-        text_new = " ".join([txt for txt in Topic_text.split() if txt not in stopwords])
-        return text_new
-    import pandas as pd
+   
     Topic = str()
     Topic = str(st.text_input("Enter the topic you are interested in (Press Enter once done)"))
     if len(Topic) > 0 :
