@@ -59,6 +59,7 @@ def main():
     def clean_text(review):
         import nltk
         import re
+	nltk.download('stopwords')
         from nltk.corpus import stopwords
         stopword = stopwords.words('english')
         review = re.sub('[^a-zA-Z]', ' ', str(review))
