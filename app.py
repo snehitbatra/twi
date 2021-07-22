@@ -110,9 +110,10 @@ def main():
             st.pyplot()
         if st.button("See the word cloud for all positive things said about ".format(Topic)):
             
+            
             new_stopwords = ["@", "RT"]
+            stopword=stopwords.words('english')
             stopword.extend(new_stopwords)
-            subset=data[data.sentiment=='positive']
             text=subset.tweets.values
             wc= WordCloud(background_color="black",max_words=4000,stopwords=stopword)
             wc.generate(" ".join(text))
