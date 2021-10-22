@@ -75,7 +75,7 @@ def main():
                 ap.append(word)
         review = ' '.join(ap)
         return review
-   
+
     Topic = str()
     Topic = str(st.text_input("Enter the topic you are interested in (Press Enter once done)"))
     if len(Topic) > 0 :
@@ -108,18 +108,7 @@ def main():
             st.subheader(" Count Plot for Different Sentiments")
             st.write(sns.countplot(data["sentiment"]))
             st.pyplot()
-        if st.button("See the word cloud for all positive things said about ".format(Topic)):
-            
-            
-            new_stopwords = ["@", "RT"]
-            stopword=stopwords.words('english')
-            stopword.extend(new_stopwords)
-            text=subset.tweets.values
-            wc= WordCloud(background_color="black",max_words=4000,stopwords=stopword)
-            wc.generate(" ".join(text))
-            st.write(plt.title("Words frequented in Positive Comments", fontsize=20))
-            st.write(plt.imshow(wc.recolor(colormap= 'gist_earth' , random_state=244), alpha=0.98))
-            st.pyplot()
+    
         if st.button("See the word cloud for negative things said about ".format(Topic)):
 #             import nltk
 #             import re
@@ -141,8 +130,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-        # Call the function to extract the data. pass the topic and filename you want the data to be stored in.
-
-    #st.write("Total Neutral Tweets are : {}".format(len(df[df["Sentiment"]=="Neutral"])))
